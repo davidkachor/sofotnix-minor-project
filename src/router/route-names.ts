@@ -1,12 +1,5 @@
-import { exampleViewRouteNames } from '@/views/example-view/example-view.routes'
-import { authRouteNames } from '@/views/auth/auth.routes'
+import { homeRouteNames } from '@/views/home/home.routes'
 
 export const routeNames = {
-  rootPage: 'rootPage',
-
-  ...exampleViewRouteNames,
-  ...authRouteNames,
-
-  additionalDefaultLayoutRoute: 'additionalDefaultLayoutRoute',
-  additionalNoLayoutRoute: 'additionalNoLayoutRoute'
+  ...homeRouteNames
 }

@@ -1,5 +1,3 @@
-import type { IBreed } from './breeds.types'
-
 export const breeds: IBreed[] = [
   {
     weight: {

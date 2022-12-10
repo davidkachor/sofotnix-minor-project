@@ -1,22 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-import { routeNames } from './route-names'
-
-import { authRoutes } from '@/views/auth/auth.routes'
-import { exampleViewRoutes } from '@/views/example-view/example-view.routes'
-
-import DefaultLayout from '@/layouts/DefaultLayout.vue'
-
-const defaultLayoutRoutes: RouteRecordRaw = {
-  path: '/',
-  name: routeNames.rootPage,
-  redirect: { name: routeNames.exampleView },
-  component: DefaultLayout,
-  children: [
-    // list of views that use default layout
-    ...exampleViewRoutes
-  ]
-}
+import { homeRoutes } from '@/views/home/home.routes'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,11 +8,9 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/'
   },
 
-  authRoutes,
-  defaultLayoutRoutes
+  ...homeRoutes
 ]
 
 export {
-  routes,
-  defaultLayoutRoutes
+  routes
 }
