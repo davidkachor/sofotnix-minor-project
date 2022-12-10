@@ -22,7 +22,7 @@
               alt="voting"
             >
           </div>
-          <router-link to="#">Voting</router-link>
+          <router-link :to="{name: $routeNames.voting}">Voting</router-link>
         </article>
 
         <article class="link-item">
@@ -33,7 +33,7 @@
               alt="breeds"
             >
           </div>
-          <router-link to="#">Breeds</router-link>
+          <router-link to="/">Breeds</router-link>
         </article>
 
         <article class="link-item">
@@ -44,7 +44,7 @@
               alt="gallery"
             >
           </div>
-          <router-link to="#">Gallery</router-link>
+          <router-link to="/">Gallery</router-link>
         </article>
       </div>
     </section>
@@ -68,7 +68,7 @@
     @apply bg-white rounded-[10px] font-jost py-[10px] text-center font-medium text-xs leading-4 tracking-[2px]
     uppercase text-main hover:bg-common;
 
-    &.active {
+    &.exact {
       @apply bg-main text-white;
     }
   }

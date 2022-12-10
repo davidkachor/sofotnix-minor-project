@@ -1,6 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-import { homeRoutes } from '@/views/home/home.routes'
+import { homeRoutes, homeRouteNames } from '@/views/home/home.routes'
+import { votingRoutes } from '@/views/voting/voting.routes'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -8,7 +9,13 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/'
   },
 
-  ...homeRoutes
+  ...homeRoutes,
+  ...votingRoutes,
+
+  {
+    path: '/*',
+    redirect: { name: homeRouteNames.home }
+  }
 ]
 
 export {

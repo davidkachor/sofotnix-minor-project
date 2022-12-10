@@ -5,6 +5,12 @@
     'primary': (
       'base': colors.$primary, // todo: this MUST be a valid 6-digit HEX color in order to make it correctly work
     ),
+  ),
+  $input: (
+    'border-radius': '20px',
+    'border': 'none',
+    'focus-border-color': '#FF868E',
+    'border-color': 'transparent'
   )
 );
 
