@@ -32,3 +32,5 @@ interface IBreed {
   bred_for?: string
   temperament?: string
 }
+
+type TFavoriteType = 'Likes' | 'Favourites' | 'Dislikes'

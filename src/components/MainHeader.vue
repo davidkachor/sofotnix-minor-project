@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex gap-[10px]">
+  <nav class="flex gap-normal">
     <Search />
 
     <router-link class="nav-link" to="/">

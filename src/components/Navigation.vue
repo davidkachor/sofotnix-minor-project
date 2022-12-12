@@ -6,13 +6,13 @@
       </router-link>
     </header>
 
-    <div class="flex flex-col gap-[10px]">
+    <div class="flex flex-col gap-normal">
       <h1 class="font-medium text-[44px] leading-[58px]">Hi intern!</h1>
-      <p class="font-normal text-pale text-[20px] leading-[30px]">Welcome to MSI 2021 Front-end test</p>
+      <p class="font-normal text-pale text-medium leading-[30px]">Welcome to MSI 2021 Front-end test</p>
     </div>
 
-    <section class="flex flex-col gap-[20px]">
-      <h2 class="font-medium text-[20px] leading-[30px]">Let's start using The Dogs Api</h2>
+    <section class="flex flex-col gap-medium">
+      <h2 class="font-medium text-medium leading-[30px]">Let's start using The Dogs Api</h2>
       <div class="flex flex-row justify-between gap-2">
         <article class="link-item">
           <div class="bg-purple-shade">
@@ -53,7 +53,7 @@
 
 <style scoped lang="scss">
 .link-item {
-  @apply flex flex-col gap-[10px];
+  @apply flex flex-col gap-normal;
 
   div {
     @apply w-[138px] h-[198px] flex justify-center items-center box-border rounded-[20px];
@@ -65,7 +65,7 @@
   }
 
   a {
-    @apply bg-white rounded-[10px] font-jost py-[10px] text-center font-medium text-xs leading-4 tracking-[2px]
+    @apply bg-white rounded-[10px] font-jost py-normal text-center font-medium text-xs leading-4 tracking-[2px]
     uppercase text-main hover:bg-common;
 
     &.exact {

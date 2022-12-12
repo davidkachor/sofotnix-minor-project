@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-[10px]">
+  <div class="flex flex-col h-full gap-normal">
     <MainHeader />
     <slot />
   </div>

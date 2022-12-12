@@ -1,9 +1,9 @@
 <template>
-  <DefaultLayout>
+  <PageLayout>
     <Navigation />
-  </DefaultLayout>
+  </PageLayout>
 </template>
 
 <script setup lang="ts">
-import DefaultLayout from '@/layouts/PageLayout.vue'
+import PageLayout from '@/layouts/PageLayout.vue'
 </script>

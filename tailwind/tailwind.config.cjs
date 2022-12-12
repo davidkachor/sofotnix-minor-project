@@ -22,7 +22,12 @@ module.exports = {
     fontFamily: {
       jost: ['Jost', 'sans-serif']
     },
-    extend: {}
+    extend: {
+      spacing: {
+        normal: '10px',
+        medium: '20px'
+      }
+    }
   },
   plugins: []
 }
