@@ -33,7 +33,7 @@
               alt="breeds"
             >
           </div>
-          <router-link to="/">Breeds</router-link>
+          <router-link :to="{ name: $routeNames.breeds }">Breeds</router-link>
         </article>
 
         <article class="link-item">
