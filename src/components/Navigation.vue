@@ -66,7 +66,7 @@
 
   a {
     @apply bg-white rounded-[10px] font-jost py-normal text-center font-medium text-xs leading-4 tracking-[2px]
-    uppercase text-main hover:bg-common;
+    uppercase text-main hover:bg-common transition;
 
     &.exact {
       @apply bg-main text-white;

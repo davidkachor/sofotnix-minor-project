@@ -11,6 +11,15 @@
   </div>
 </template>
 
+<script setup lang="ts">
+onMounted(() => {
+  (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
+})
+onUnmounted(() => {
+  (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto'
+})
+</script>
+
 <style lang="scss" scoped>
 .calculated {
   width: calc(100% + 95px)

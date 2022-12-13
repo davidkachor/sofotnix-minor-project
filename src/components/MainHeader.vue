@@ -18,7 +18,7 @@
 
 <style lang="scss" scoped>
 .nav-link {
-  @apply bg-white hover:bg-common rounded-[20px] p-[15px];
+  @apply bg-white hover:bg-common rounded-[20px] p-[15px] transition;
 
   svg {
     @apply fill-main;

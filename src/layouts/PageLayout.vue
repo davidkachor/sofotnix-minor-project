@@ -9,9 +9,9 @@
 
 <style lang="scss">
 #app {
-  @apply flex flex-row p-[30px] gap-medium justify-between;
+  @apply flex flex-row p-[30px] gap-medium justify-between box-border min-h-[100vh];
 }
 body {
-  @apply bg-layout;
+  @apply bg-layout min-h-[100vh];
 }
 </style>

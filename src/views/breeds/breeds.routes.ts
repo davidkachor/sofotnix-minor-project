@@ -17,6 +17,7 @@ export const breedsRoutes: RouteRecordRaw[] = [
   {
     path: '/breeds/:id',
     name: breedsRouteNames.breedItem,
-    component: BreedItem
+    component: BreedItem,
+    props: true
   }
 ]
