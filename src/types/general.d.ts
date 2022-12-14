@@ -36,3 +36,9 @@ interface IBreed {
 type TBreedHashed = Record<string, IBreed>
 
 type TFavoriteType = 'Likes' | 'Favourites' | 'Dislikes'
+
+interface IQueryParams {
+  sort: 'dsc' | 'asc' | 'none'
+  filterByName: string[]
+  limit: number
+}
