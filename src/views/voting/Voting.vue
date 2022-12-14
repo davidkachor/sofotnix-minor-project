@@ -5,7 +5,7 @@
 
       <div class="mt-medium relative">
         <div class="rounded-[20px] overflow-hidden">
-          <el-image class="w-full" src="../../../src/assets/main/mocha-image.png" alt="item">
+          <el-image class="h-full" fit="cover" :src="item.image.url" :alt="item.name">
             <template #error>
               <div class="w-full flex items-center justify-center bg-gray-200 p-[60px]">
                 <ImagePlaceholderIcon />
@@ -16,21 +16,21 @@
 
         <div class="button-group absolute bottom-[-44px] translate-x-[50%] right-[50%]">
           <el-button>
-            <SmilePositiveIcon class="fill-white" />
+            <SmilePositiveIcon class="fill-white" @click="addLike(item)" />
           </el-button>
 
           <el-button class="bg-main">
-            <HeartEmptyIcon class="fill-white" />
+            <HeartEmptyIcon class="fill-white" @click="addFavourite(item)" />
           </el-button>
 
           <el-button class="bg-yellow-shade">
-            <SmileNegativeIcon class="fill-white" />
+            <SmileNegativeIcon class="fill-white" @click="addDislike(item)" />
           </el-button>
         </div>
       </div>
 
       <div class="mt-[52px] flex flex-col overflow-y-auto gap-normal">
-        <ActionLog v-for="(action, index) of actions" :key="index" :item="action" />
+        <ActionLog v-for="(action, index) of history" :key="index" :item="action" />
       </div>
     </div>
   </MainContentLayout>
@@ -38,84 +38,14 @@
 
 <script lang="ts" setup>
 import MainContentLayout from '@/layouts/MainContentLayout.vue'
+import { useGetRandomBreed } from './composables/get-random-breed'
 
-const actions: IActionLog[] = [
-  {
-    imageId: '123123',
-    time: {
-      hour: 12,
-      minutes: 21
-    },
-    type: 'Dislikes'
-  },
-  {
-    imageId: '1asd23123',
-    time: {
-      hour: 13,
-      minutes: 45
-    },
-    type: 'Dislikes'
-  }, {
-    imageId: '123asdzx123',
-    time: {
-      hour: 21,
-      minutes: 23
-    },
-    type: 'Likes'
-  }, {
-    imageId: '12312asdasd3',
-    time: {
-      hour: 12,
-      minutes: 21
-    },
-    type: 'Favourites'
-  }, {
-    imageId: '123ss12asdasd3',
-    time: {
-      hour: 12,
-      minutes: 21
-    },
-    type: 'Favourites',
-    remove: true
-  }, {
-    imageId: '123123',
-    time: {
-      hour: 12,
-      minutes: 21
-    },
-    type: 'Dislikes'
-  },
-  {
-    imageId: '1asd23123',
-    time: {
-      hour: 13,
-      minutes: 45
-    },
-    type: 'Dislikes'
-  }, {
-    imageId: '123asdzx123',
-    time: {
-      hour: 21,
-      minutes: 23
-    },
-    type: 'Likes'
-  }, {
-    imageId: '12312asdasd3',
-    time: {
-      hour: 12,
-      minutes: 21
-    },
-    type: 'Favourites'
-  }, {
-    imageId: '123ss12asdasd3',
-    time: {
-      hour: 12,
-      minutes: 21
-    },
-    type: 'Favourites',
-    remove: true
-  }
-]
+const ratingsStore = useRatingsStore()
+const { history } = storeToRefs(ratingsStore)
+const { addDislike, addFavourite, addLike } = ratingsStore
+
+const item = useGetRandomBreed()
+
 </script>
 
 <style scoped lang="scss">

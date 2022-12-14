@@ -216,6 +216,7 @@
     "usePreferredLanguages": true,
     "usePreferredReducedMotion": true,
     "useRafFn": true,
+    "useRatingsStore": true,
     "useRefHistory": true,
     "useRequiredRule": true,
     "useResizeObserver": true,

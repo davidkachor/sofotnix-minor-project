@@ -4,7 +4,7 @@
 
     <p class="text-pale">Image ID: <span class="font-medium text-contrast">{{ item.imageId }}</span> {{ message }}</p>
 
-    <SmilePositiveIcon v-if="item.type === 'Favourites'" class="fill-green-shade ml-auto" />
+    <SmilePositiveIcon v-if="item.type === 'Likes'" class="fill-green-shade ml-auto" />
     <SmileNegativeIcon v-else-if="item.type === 'Dislikes'" class="fill-yellow-shade ml-auto" />
     <HeartEmptyIcon v-else class="fill-main ml-auto" />
   </article>
