@@ -1,7 +1,9 @@
 <template>
   <MainContentLayout>
     <div class="bg-white p-medium rounded-[20px] flex flex-col gap-medium">
-      <BackToMain :tab-list="['breeds', id]" :previous-page-name="$routeNames.breeds" />
+      <PageTabs
+        :tab-list="[{name: 'breeds', url: {name: $routeNames.breeds}}, {name: id}]"
+      />
 
       <div class=" relative">
         <el-image :src="breed?.image.url" alt="item" class="min-h-[200px] rounded-[20px]">

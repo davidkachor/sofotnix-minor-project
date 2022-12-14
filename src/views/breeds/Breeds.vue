@@ -2,7 +2,7 @@
   <MainContentLayout>
     <div class="p-medium bg-white rounded-[20px]">
       <nav class="flex gap-normal items-center">
-        <BackToMain :tab-list="['Breeds']" />
+        <PageTabs :tab-list="[{name: 'Breeds'}]" />
 
         <el-select
           v-model="queryParams.filterByName"
@@ -16,11 +16,11 @@
           <el-option v-for="{label, value} of limitOptions" :key="value" :value="value" :label="label" />
         </el-select>
 
-        <el-button class="sort-button" @click="queryParams.sort = 'asc'">
+        <el-button class="sort-button" @click="queryParams.sort = 'dsc'">
           <AlphabetAscendingIcon />
         </el-button>
 
-        <el-button class="sort-button" @click="queryParams.sort = 'dsc'">
+        <el-button class="sort-button" @click="queryParams.sort = 'asc'">
           <AlphabetDescendingIcon />
         </el-button>
       </nav>
@@ -33,7 +33,7 @@
 
       <el-button
         v-if="canShowMore"
-        class="mt-medium w-full rounded-[10px] bg-common !text-main hover:bg-main !hover:text-white py-medium"
+        class="show-more-button"
         @click="showMore"
       >
         Show more
@@ -96,5 +96,11 @@ const nameOptions = computed<{label: string; value: string | number}[]>(() => {
       @apply fill-main;
     }
   }
+}
+.show-more-button {
+ @apply mt-medium w-full rounded-[10px] py-medium border-main;
+ button {
+  @apply  bg-common text-main hover:bg-main hover:text-white;
+ }
 }
 </style>
