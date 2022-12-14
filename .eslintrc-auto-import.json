@@ -122,6 +122,7 @@
     "useBattery": true,
     "useBluetooth": true,
     "useBreakpoints": true,
+    "useBreedsStore": true,
     "useBroadcastChannel": true,
     "useBrowserLocation": true,
     "useCached": true,

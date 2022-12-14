@@ -2,9 +2,13 @@
   <MainContentLayout>
     <div class="p-medium bg-white rounded-[20px]">
       <nav class="flex gap-normal items-center">
-        <BackToMain title="Breeds" />
+        <BackToMain :tab-list="['Breeds']" />
 
-        <el-select size="large" placeholder="All breeds" class="!rounded-[10px]">
+        <el-select
+          v-model="selected"
+          multiple
+          size="large" collapse-tags mutiple placeholder="All breeds" class="w-[226px]"
+        >
           <el-option v-for="{label, value} of options" :key="value" :value="value" :label="label" />
         </el-select>
 
@@ -33,51 +37,45 @@
 <script setup lang="ts">
 import MainContentLayout from '@/layouts/MainContentLayout.vue'
 import GridContentlayout from '@/layouts/GridContentLayout.vue'
+import { useBreedsStore } from '@/store/modules/breeds.store'
 
-import { breeds } from '@/__homework/breeds'
-
-const limit = ref('10')
+const limit = ref(10)
+const { allBreeds } = storeToRefs(useBreedsStore())
 
 const gridMaker = computed(() => {
-  return breeds.slice(0, 15).map(el => ({ value: el.id, img: el.image.url, name: el.name }))
+  return Object.values(allBreeds.value).map(el => ({ value: el.id, img: el.image.url, name: el.name }))
 })
 
-const limitOptions: {label: string; value: string}[] = [
+const selected = ref<string[]>([])
+
+const limitOptions: {label: string; value: string | number}[] = [
   {
-    value: '5',
+    value: 5,
     label: 'Limit: 5'
   },
   {
-    value: '10',
+    value: 10,
     label: 'Limit: 10'
   },
   {
-    value: '15',
+    value: 15,
     label: 'Limit: 15'
   },
   {
-    value: '20',
+    value: 20,
     label: 'Limit: 20'
   }
 ]
 
-const options: {label: string; value: string}[] = [
-  {
-    label: '123123',
-    value: '123123'
-  },
-  {
-    label: '321321',
-    value: '321321'
-  },
-  {
-    label: '456456',
-    value: '456456'
-  }
-]
+const options = computed<{label: string; value: string | number}[]>(() => {
+  return Object.values(allBreeds.value).map(el => ({ label: el.name, value: el.id }))
+})
 </script>
 
 <style scoped lang="scss">
+:global(.el-select-dropdown) {
+  overflow: auto
+}
 .sort-button {
   @apply border-layout bg-layout rounded-[10px] w-10 h-10;
   svg {

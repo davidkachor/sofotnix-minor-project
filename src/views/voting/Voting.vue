@@ -1,7 +1,7 @@
 <template>
   <MainContentLayout>
     <div class="bg-white rounded-[20px] h-max p-medium flex flex-col box-border">
-      <BackToMain title="Voting" />
+      <BackToMain :tab-list="['Voting']" />
 
       <div class="mt-medium relative">
         <div class="rounded-[20px] overflow-hidden">

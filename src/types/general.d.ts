@@ -33,4 +33,6 @@ interface IBreed {
   temperament?: string
 }
 
+type TBreedHashed = Record<string, IBreed>
+
 type TFavoriteType = 'Likes' | 'Favourites' | 'Dislikes'
