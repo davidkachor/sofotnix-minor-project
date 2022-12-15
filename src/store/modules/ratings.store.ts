@@ -8,6 +8,7 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function addLike (item: IBreed) {
     likesStore.value.unshift(item)
+
     addToHistory({
       type: 'Likes',
       imageId: item.image.id
@@ -16,7 +17,9 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function removeLike (item: IBreed) {
     const index = likesStore.value.indexOf(item)
-    likesStore.value.splice(index, 0)
+
+    likesStore.value.splice(index, 1)
+
     addToHistory({
       type: 'Likes',
       imageId: item.image.id,
@@ -26,6 +29,7 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function addDislike (item: IBreed) {
     dislikesStore.value.unshift(item)
+
     addToHistory({
       type: 'Dislikes',
       imageId: item.image.id
@@ -34,7 +38,9 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function removeDislike (item: IBreed) {
     const index = dislikesStore.value.indexOf(item)
-    dislikesStore.value.splice(index, 0)
+
+    dislikesStore.value.splice(index, 1)
+
     addToHistory({
       type: 'Dislikes',
       imageId: item.image.id,
@@ -44,6 +50,7 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function addFavourite (item: IBreed) {
     favouritesStore.value.unshift(item)
+
     addToHistory({
       type: 'Favourites',
       imageId: item.image.id
@@ -52,7 +59,9 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function removeFavourite (item: IBreed) {
     const index = favouritesStore.value.indexOf(item)
-    favouritesStore.value.splice(index, 0)
+
+    favouritesStore.value.splice(index, 1)
+
     addToHistory({
       type: 'Favourites',
       imageId: item.image.id,
@@ -62,7 +71,9 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function addToHistory (log: Omit<IActionLog, 'time' | 'id'>) {
     const date = new Date()
+
     const id = v4()
+
     historyStore.value.unshift({
       id,
       time: {

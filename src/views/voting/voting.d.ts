@@ -5,6 +5,6 @@ interface IActionLog {
     hour: number
   }
   imageId: string
-  type: TFavoriteType
+  type: TRateType
   remove?: boolean
 }

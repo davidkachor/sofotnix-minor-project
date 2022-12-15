@@ -8,10 +8,7 @@
 
 <script setup lang="ts">
 defineProps<{
-  data: {
-    value: number | string
-    [K: string]: any
-  }[]
+  data: IGridItem[]
 }>()
 </script>
 

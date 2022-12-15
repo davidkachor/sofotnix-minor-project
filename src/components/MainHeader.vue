@@ -2,15 +2,15 @@
   <nav class="flex gap-normal">
     <Search />
 
-    <router-link class="nav-link" to="/">
+    <router-link class="nav-link" :to="{ name: $routeNames.likes }">
       <SmilePositiveIcon />
     </router-link>
 
-    <router-link class="nav-link !py-[17px]" to="/">
+    <router-link class="nav-link !py-[17px]" :to="{ name: $routeNames.favorites }">
       <HeartEmptyIcon />
     </router-link>
 
-    <router-link class="nav-link" to="/">
+    <router-link class="nav-link" :to="{ name: $routeNames.dislikes }">
       <SmileNegativeIcon />
     </router-link>
   </nav>
