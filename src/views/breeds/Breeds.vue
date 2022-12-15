@@ -27,7 +27,7 @@
 
       <GridContentlayout class="mt-medium gap-medium" :data="gridData">
         <template #grid-item="{item}">
-          <BreedLink :id="+item.value" :key="item.value" :name="item.name" :src="item.img" />
+          <BreedLinkItem :id="+item.value" :key="item.value" :name="item.name" :src="item.img" />
         </template>
       </GridContentlayout>
 

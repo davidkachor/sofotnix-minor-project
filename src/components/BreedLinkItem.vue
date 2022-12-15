@@ -27,7 +27,7 @@
 <script setup lang="ts">
 defineProps<{
   src: string
-  id: number
+  id: number | string
   name: string
 }>()
 

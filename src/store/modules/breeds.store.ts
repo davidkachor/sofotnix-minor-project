@@ -1,4 +1,5 @@
 import { breeds } from '@/__homework/breeds'
+import { searchMatch } from '@/helpers'
 
 export const useBreedsStore = defineStore('breeds', () => {
   const breedsState = shallowRef<IBreed[]>(breeds)
@@ -32,6 +33,10 @@ export const useBreedsStore = defineStore('breeds', () => {
     return filteredBreeds.value.length > showAmount.value
   })
 
+  function breedsBySearch (search: string | string[]) {
+    return breedsState.value.filter(el => searchMatch(el.name, search))
+  }
+
   function showMore () {
     showAmount.value = showAmount.value + queryParams.value.limit
   }
@@ -40,5 +45,12 @@ export const useBreedsStore = defineStore('breeds', () => {
     showAmount.value = newValue
   })
 
-  return { queryParams, filteredBreeds: limitedBreeds, showMore, allBreeds: breedsState, canShowMore }
+  return {
+    queryParams,
+    filteredBreeds: limitedBreeds,
+    showMore,
+    allBreeds: breedsState,
+    canShowMore,
+    breedsBySearch
+  }
 })

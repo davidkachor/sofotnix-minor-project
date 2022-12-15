@@ -1,15 +1,30 @@
 <template>
-  <el-input v-model="inputValue" placeholder="Search for breads by name" type="search">
-    <template #append>
-      <el-button>
-        <MagnifyingGlassIcon class="fill-main" />
-      </el-button>
-    </template>
-  </el-input>
+  <form class="w-full">
+    <el-input v-model="inputValue" placeholder="Search for breads by name" type="search">
+      <template #append>
+        <el-button native-type="submit" @click.prevent="onClick">
+          <MagnifyingGlassIcon class="fill-main" />
+        </el-button>
+      </template>
+    </el-input>
+  </form>
 </template>
 
 <script lang="ts" setup>
-const inputValue = ref('')
+import { useRouteQuery } from '@vueuse/router'
+
+const router = useRouter()
+const route = useRoute()
+const { $routeNames } = useGlobalProperties()
+
+const search = useRouteQuery('s', '')
+console.log(search.value)
+
+const inputValue = ref(route.name === $routeNames.search ? search.value : '')
+
+function onClick () {
+  router.push({ name: $routeNames.search, query: { s: inputValue.value } })
+}
 </script>
 
 <style lang="scss">

@@ -4,6 +4,7 @@ import { homeRoutes, homeRouteNames } from '@/views/home/home.routes'
 import { votingRoutes } from '@/views/voting/voting.routes'
 import { breedsRoutes } from '@/views/breeds/breeds.routes'
 import { ratesRoutes } from '@/views/rates/rates.routes'
+import { searchRoutes } from '@/views/search/search.routes'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -15,6 +16,7 @@ const routes: Array<RouteRecordRaw> = [
   ...votingRoutes,
   ...breedsRoutes,
   ...ratesRoutes,
+  ...searchRoutes,
 
   {
     path: '/*',
