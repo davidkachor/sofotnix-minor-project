@@ -6,7 +6,7 @@
       />
 
       <div class=" relative">
-        <el-image :src="breed?.image.url" alt="item" class="min-h-[200px] rounded-[20px]">
+        <el-image :src="breed?.image.url" alt="item" class="min-h-[200px] w-full rounded-[20px]">
           <template #error>
             <div class="w-full h-full flex items-center justify-center bg-gray-200 p-[60px]">
               <ImagePlaceholderIcon class="w-10 h-10" />

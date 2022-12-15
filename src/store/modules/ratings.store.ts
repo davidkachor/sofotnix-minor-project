@@ -1,4 +1,6 @@
-export const useRatingsStore = defineStore('likes', () => {
+import { v4 } from 'uuid'
+
+export const useRatingsStore = defineStore('ratings', () => {
   const likesStore = ref<IBreed[]>([])
   const dislikesStore = ref<IBreed[]>([])
   const favouritesStore = ref<IBreed[]>([])
@@ -58,9 +60,11 @@ export const useRatingsStore = defineStore('likes', () => {
     })
   }
 
-  function addToHistory (log: Omit<IActionLog, 'time'>) {
+  function addToHistory (log: Omit<IActionLog, 'time' | 'id'>) {
     const date = new Date()
+    const id = v4()
     historyStore.value.unshift({
+      id,
       time: {
         hour: date.getHours(),
         minutes: date.getMinutes()
