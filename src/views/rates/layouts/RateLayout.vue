@@ -9,7 +9,12 @@
 
       <GridContentLayout v-else :data="gridData" class="gap-medium">
         <template #grid-item="{ item }">
-          <BreedRateItem :src="item.src" :name="item.name" :type="type" @remove-rate="$emit('remove-rate', item.ref)" />
+          <BreedRateItem
+            :src="item.src"
+            :name="item.name"
+            :type="type"
+            @remove-rate="$emit('remove-rate', item.ref as IBreed)"
+          />
         </template>
       </GridContentLayout>
 

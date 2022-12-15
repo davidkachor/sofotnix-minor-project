@@ -1,7 +1,7 @@
 import { breeds } from '@/__homework/breeds'
 
 export const useBreedsStore = defineStore('breeds', () => {
-  const breedsState = shallowRef(breeds)
+  const breedsState = shallowRef<IBreed[]>(breeds)
 
   const queryParams = ref<IQueryParams>({
     limit: 10,

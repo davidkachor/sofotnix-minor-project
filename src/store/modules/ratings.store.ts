@@ -7,6 +7,7 @@ export const useRatingsStore = defineStore('ratings', () => {
   const historyStore = ref<IActionLog[]>([])
 
   function addLike (item: IBreed) {
+    if (!item) return
     likesStore.value.unshift(item)
 
     addToHistory({
@@ -17,6 +18,7 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function removeLike (item: IBreed) {
     const index = likesStore.value.indexOf(item)
+    if (index === -1) return
 
     likesStore.value.splice(index, 1)
 
@@ -28,6 +30,7 @@ export const useRatingsStore = defineStore('ratings', () => {
   }
 
   function addDislike (item: IBreed) {
+    if (!item) return
     dislikesStore.value.unshift(item)
 
     addToHistory({
@@ -38,6 +41,7 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function removeDislike (item: IBreed) {
     const index = dislikesStore.value.indexOf(item)
+    if (index === -1) return
 
     dislikesStore.value.splice(index, 1)
 
@@ -49,6 +53,7 @@ export const useRatingsStore = defineStore('ratings', () => {
   }
 
   function addFavourite (item: IBreed) {
+    if (!item) return
     favouritesStore.value.unshift(item)
 
     addToHistory({
@@ -59,6 +64,7 @@ export const useRatingsStore = defineStore('ratings', () => {
 
   function removeFavourite (item: IBreed) {
     const index = favouritesStore.value.indexOf(item)
+    if (index === -1) return
 
     favouritesStore.value.splice(index, 1)
 

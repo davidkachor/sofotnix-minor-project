@@ -25,7 +25,7 @@
         </el-button>
       </nav>
 
-      <GridContentlayout class="mt-medium gap-medium" :data="gridMaker">
+      <GridContentlayout class="mt-medium gap-medium" :data="gridData">
         <template #grid-item="{item}">
           <BreedLink :id="+item.value" :key="item.value" :name="item.name" :src="item.img" />
         </template>
@@ -51,7 +51,7 @@ const breedsStore = useBreedsStore()
 const { filteredBreeds, queryParams, allBreeds, canShowMore } = storeToRefs(breedsStore)
 const { showMore } = breedsStore
 
-const gridMaker = computed(() => {
+const gridData = computed(() => {
   return filteredBreeds.value.map(el => ({ value: el.id, img: el.image.url, name: el.name }))
 })
 

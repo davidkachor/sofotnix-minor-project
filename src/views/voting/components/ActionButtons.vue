@@ -1,5 +1,5 @@
 <template>
-  <div class="button-group absolute bottom-[-44px] translate-x-[50%] right-[50%]">
+  <div class="button-group">
     <el-button @click="$emit('add-like')">
       <SmilePositiveIcon class="fill-white" />
     </el-button>

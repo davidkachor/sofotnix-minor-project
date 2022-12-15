@@ -3,7 +3,11 @@
     <div class="bg-white rounded-[20px] h-max p-medium flex flex-col box-border">
       <PageTabs :tab-list="[{name: 'Voting'}]" />
 
-      <div class="mt-medium relative">
+      <p v-if="item === null" class="mt-medium text-center bg-layout py-medium text-pale rounded-[10px]">
+        No breeds to rate left
+      </p>
+
+      <div v-else class="mt-medium relative">
         <el-image
           class="w-full h-[400px] rounded-[20px] "
           fit="cover"
@@ -17,7 +21,12 @@
           </template>
         </el-image>
 
-        <ActionButtons @add-dislike="addDislike(item)" @add-like="addLike(item)" @add-fav="addFavourite(item)" />
+        <ActionButtons
+          class="absolute bottom-[-44px] translate-x-[50%] right-[50%]"
+          @add-dislike="addDislike(item as IBreed)"
+          @add-like="addLike(item as IBreed)"
+          @add-fav="addFavourite(item as IBreed)"
+        />
       </div>
 
       <div class="mt-[52px] flex flex-col overflow-y-auto gap-normal">
@@ -29,11 +38,11 @@
 
 <script lang="ts" setup>
 import MainContentLayout from '@/layouts/MainContentLayout.vue'
-import { useGetRandomBreed } from './composables/get-random-breed'
+import { useGetRandomUnratedBreed } from './composables/get-random-unrated-breed'
 
 const ratingsStore = useRatingsStore()
 const { history } = storeToRefs(ratingsStore)
 const { addDislike, addFavourite, addLike } = ratingsStore
 
-const item = useGetRandomBreed()
+const item = useGetRandomUnratedBreed()
 </script>
