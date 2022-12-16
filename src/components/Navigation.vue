@@ -44,7 +44,7 @@
               alt="gallery"
             >
           </div>
-          <router-link to="/">Gallery</router-link>
+          <router-link :to="{ name: $routeNames.gallery }">Gallery</router-link>
         </article>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-import Breeds from './Breeds.vue'
-import BreedItem from './BreedItem.vue'
+import BreedsPage from './BreedsPage.vue'
+import BreedItemPage from './BreedItemPage.vue'
 
 export const breedsRouteNames = {
   breeds: 'breeds',
@@ -12,12 +12,12 @@ export const breedsRoutes: RouteRecordRaw[] = [
   {
     path: '/breeds',
     name: breedsRouteNames.breeds,
-    component: Breeds
+    component: BreedsPage
   },
   {
     path: '/breeds/:id',
     name: breedsRouteNames.breedItem,
-    component: BreedItem,
+    component: BreedItemPage,
     props: true
   }
 ]
