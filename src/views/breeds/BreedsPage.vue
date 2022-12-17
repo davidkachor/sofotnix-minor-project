@@ -49,11 +49,13 @@ import { useBreedsStore } from '@/store/modules/breeds.store'
 
 const breedsStore = useBreedsStore()
 const { filteredBreeds, queryParams, allBreeds, canShowMore } = storeToRefs(breedsStore)
-const { showMore } = breedsStore
+const { showMore, resetQueryParams } = breedsStore
 
 const gridData = computed(() => {
   return filteredBreeds.value.map(el => ({ value: el.id, img: el.image.url, name: el.name }))
 })
+
+onMounted(() => resetQueryParams())
 
 const limitOptions: {label: string; value: string | number}[] = [
   {

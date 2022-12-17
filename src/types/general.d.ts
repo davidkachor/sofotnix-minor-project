@@ -39,7 +39,7 @@ type TRateType = 'Likes' | 'Favourites' | 'Dislikes'
 
 interface IQueryParams {
   sort: 'dsc' | 'asc' | 'none'
-  filterByName: string[]
+  filterByName: string[] | string
   limit: number
 }
 

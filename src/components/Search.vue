@@ -18,7 +18,6 @@ const route = useRoute()
 const { $routeNames } = useGlobalProperties()
 
 const search = useRouteQuery('s', '')
-console.log(search.value)
 
 const inputValue = ref(route.name === $routeNames.search ? search.value : '')
 

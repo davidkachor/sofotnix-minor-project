@@ -1,5 +1,5 @@
 import { breeds } from '@/__homework/breeds'
-import { searchMatch } from '@/helpers'
+import { searchMatch, shuffle } from '@/helpers'
 
 export const useBreedsStore = defineStore('breeds', () => {
   const breedsState = shallowRef<IBreed[]>(breeds)
@@ -13,11 +13,11 @@ export const useBreedsStore = defineStore('breeds', () => {
   const showAmount = ref(queryParams.value.limit)
 
   const filteredBreeds = computed<IBreed[]>(() => {
-    console.log('toggle filter')
     const array = [...breedsState.value]
 
     if (queryParams.value.sort === 'asc') array.sort((a, b) => a.name.localeCompare(b.name))
     else if (queryParams.value.sort === 'dsc') array.sort((a, b) => b.name.localeCompare(a.name))
+    else shuffle(array)
 
     return array.filter(el => {
       return queryParams.value.filterByName.length === 0 || queryParams.value.filterByName.includes(el.name)
@@ -25,7 +25,6 @@ export const useBreedsStore = defineStore('breeds', () => {
   })
 
   const limitedBreeds = computed<IBreed[]>(() => {
-    console.log('toggle limited')
     return filteredBreeds.value.slice(0, showAmount.value)
   })
 
@@ -41,6 +40,14 @@ export const useBreedsStore = defineStore('breeds', () => {
     showAmount.value = showAmount.value + queryParams.value.limit
   }
 
+  function resetQueryParams () {
+    queryParams.value = {
+      limit: 10,
+      filterByName: [],
+      sort: 'none'
+    }
+  }
+
   watch(() => queryParams.value.limit, (newValue) => {
     showAmount.value = newValue
   })
@@ -51,6 +58,7 @@ export const useBreedsStore = defineStore('breeds', () => {
     showMore,
     allBreeds: breedsState,
     canShowMore,
-    breedsBySearch
+    breedsBySearch,
+    resetQueryParams
   }
 })
