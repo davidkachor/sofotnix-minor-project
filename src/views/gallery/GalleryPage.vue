@@ -4,7 +4,7 @@
       <nav class="flex justify-between items-center">
         <PageTabs :tab-list="[{ name: 'Gallery' }]" />
 
-        <el-button>
+        <el-button @click="uploadModalOpen = true">
           <UploadIcon class="w-4" /> Upload
         </el-button>
       </nav>
@@ -18,6 +18,8 @@
       </GridContentLayout>
     </div>
   </MainContentLayout>
+
+  <UploadPhotoModal v-if="uploadModalOpen" @close="uploadModalOpen = false" />
 </template>
 
 <script setup lang="ts">
@@ -27,6 +29,8 @@ import GridContentLayout from '@/layouts/GridContentLayout.vue'
 const breedsStore = useBreedsStore()
 const { filteredBreeds } = storeToRefs(breedsStore)
 const { resetQueryParams } = breedsStore
+
+const uploadModalOpen = ref(true)
 
 const gridData = computed<IGridItem[]>(() => {
   return filteredBreeds.value.map(el => ({ value: el.id, name: el.name, src: el.image.url, ref: el }))

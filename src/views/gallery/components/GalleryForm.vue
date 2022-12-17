@@ -1,6 +1,6 @@
 <template>
   <form
-    class="grid grid-cols-2 grid-rows-2 bg-layout rounded-[20px] mt-5 pt-normal px-[30px] pb-medium
+    class="grid grid-cols-2 grid-rows-2 bg-layout rounded-[20px] pt-normal px-medium pb-medium
     gap-x-medium gap-y-normal"
   >
     <div>

@@ -17,7 +17,8 @@ module.exports = {
       pale: '#8C8C8C',
       'yellow-shade': '#FFD280',
       'green-shade': '#97EAB9',
-      'purple-shade': '#B4B7FF'
+      'purple-shade': '#B4B7FF',
+      'modal-layout': '#1D1D1D99'
     },
     fontFamily: {
       jost: ['Jost', 'sans-serif']
