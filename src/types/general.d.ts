@@ -46,3 +46,5 @@ interface IQueryParams {
 interface IGridItem extends Record<string, any> {
   value: string | number
 }
+
+type TRating = Record<string | number, IBreed>

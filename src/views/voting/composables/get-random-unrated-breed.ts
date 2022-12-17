@@ -7,14 +7,9 @@ export const useGetRandomUnratedBreed = () => {
 
   const shuffledBreeds = computed(() => shuffle([...allBreeds.value]))
 
-  const hashedRatingStore = computed<Record<number, IBreed>>(() => {
-    return [...dislikes.value, ...favourites.value, ...likes.value]
-      .reduce((acc, curr) => ({ ...acc, [curr.id]: curr }), {} as Record<number, IBreed>)
-  })
-
   const data = computed<IBreed | null>(() => {
     for (const item of shuffledBreeds.value) {
-      if (!hashedRatingStore.value[item.id]) {
+      if (!dislikes.value[item.id] && !favourites.value[item.id] && !likes.value[item.id]) {
         return item
       }
     }

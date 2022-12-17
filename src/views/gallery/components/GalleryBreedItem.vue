@@ -41,7 +41,7 @@ const { addFavourite, removeFavourite } = ratingsStore
 const isHovered = ref(false)
 
 const isFavorite = computed(() => {
-  return favourites.value.includes(props.breedItem)
+  return favourites.value[props.breedItem.id]
 })
 
 function onClick () {

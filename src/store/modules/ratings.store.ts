@@ -1,14 +1,13 @@
 import { v4 } from 'uuid'
 
 export const useRatingsStore = defineStore('ratings', () => {
-  const likesStore = ref<IBreed[]>([])
-  const dislikesStore = ref<IBreed[]>([])
-  const favouritesStore = ref<IBreed[]>([])
-  const historyStore = ref<IActionLog[]>([])
+  const likesStore = useLocalStorage('rating/likes', {} as TRating)
+  const dislikesStore = useLocalStorage('rating/dislikes', {} as TRating)
+  const favouritesStore = useLocalStorage('rating/favorites', {} as TRating)
+  const historyStore = useLocalStorage('action logs history', [] as IActionLog[])
 
   function addLike (item: IBreed) {
-    if (!item) return
-    likesStore.value.unshift(item)
+    likesStore.value[item.id] = item
 
     addToHistory({
       type: 'Likes',
@@ -17,10 +16,7 @@ export const useRatingsStore = defineStore('ratings', () => {
   }
 
   function removeLike (item: IBreed) {
-    const index = likesStore.value.indexOf(item)
-    if (index === -1) return
-
-    likesStore.value.splice(index, 1)
+    delete likesStore.value[item.id]
 
     addToHistory({
       type: 'Likes',
@@ -30,8 +26,7 @@ export const useRatingsStore = defineStore('ratings', () => {
   }
 
   function addDislike (item: IBreed) {
-    if (!item) return
-    dislikesStore.value.unshift(item)
+    dislikesStore.value[item.id] = item
 
     addToHistory({
       type: 'Dislikes',
@@ -40,10 +35,7 @@ export const useRatingsStore = defineStore('ratings', () => {
   }
 
   function removeDislike (item: IBreed) {
-    const index = dislikesStore.value.indexOf(item)
-    if (index === -1) return
-
-    dislikesStore.value.splice(index, 1)
+    delete dislikesStore.value[item.id]
 
     addToHistory({
       type: 'Dislikes',
@@ -53,8 +45,7 @@ export const useRatingsStore = defineStore('ratings', () => {
   }
 
   function addFavourite (item: IBreed) {
-    if (!item) return
-    favouritesStore.value.unshift(item)
+    favouritesStore.value[item.id] = item
 
     addToHistory({
       type: 'Favourites',
@@ -63,10 +54,7 @@ export const useRatingsStore = defineStore('ratings', () => {
   }
 
   function removeFavourite (item: IBreed) {
-    const index = favouritesStore.value.indexOf(item)
-    if (index === -1) return
-
-    favouritesStore.value.splice(index, 1)
+    delete favouritesStore.value[item.id]
 
     addToHistory({
       type: 'Favourites',

@@ -3,7 +3,7 @@
     <div class="p-medium rounded-[20px] bg-white flex flex-col gap-medium">
       <PageTabs :tab-list="[{ name: pageName || type }]" />
 
-      <p v-if="data.length === 0" class="py-[18px] px-5 rounded-[10px] bg-layout text-pale">
+      <p v-if="isEmpty" class="py-[18px] px-5 rounded-[10px] bg-layout text-pale">
         No item found
       </p>
 
@@ -32,7 +32,7 @@ import GridContentLayout from '@/layouts/GridContentLayout.vue'
 const props = defineProps<{
   type: TRateType
   pageName?: string
-  data: IBreed[]
+  data: TRating
 }>()
 
 defineEmits<{
@@ -41,9 +41,18 @@ defineEmits<{
 
 const { history } = storeToRefs(useRatingsStore())
 
-const gridData = computed<IRatesItemData[]>(() => {
-  return props.data.map(el => ({ ref: el, value: el.id, name: el.name, src: el.image.url }))
+const gridData = computed(() => {
+  const refactored: IRatesItemData[] = []
+
+  for (const key in props.data) {
+    const { id, name, image } = props.data[key]
+    refactored.push({ ref: props.data[key], value: id, name, src: image.url })
+  }
+
+  return refactored
 })
+
+const isEmpty = computed(() => Object.keys(props.data).length === 0)
 
 const actionLogs = computed<IActionLog[]>(() => {
   return history.value.filter(log => log.type === props.type && log.remove)
