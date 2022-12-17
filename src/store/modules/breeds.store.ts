@@ -1,5 +1,7 @@
+import { shuffle } from 'lodash'
+
 import { breeds } from '@/__homework/breeds'
-import { searchMatch, shuffle } from '@/helpers'
+import { searchMatch } from '@/helpers'
 
 export const useBreedsStore = defineStore('breeds', () => {
   const breedsState = shallowRef<IBreed[]>(breeds)
@@ -13,11 +15,11 @@ export const useBreedsStore = defineStore('breeds', () => {
   const showAmount = ref(queryParams.value.limit)
 
   const filteredBreeds = computed<IBreed[]>(() => {
-    const array = [...breedsState.value]
+    let array = [...breedsState.value]
 
     if (queryParams.value.sort === 'asc') array.sort((a, b) => a.name.localeCompare(b.name))
     else if (queryParams.value.sort === 'dsc') array.sort((a, b) => b.name.localeCompare(a.name))
-    else shuffle(array)
+    else array = shuffle(array)
 
     return array.filter(el => {
       return queryParams.value.filterByName.length === 0 || queryParams.value.filterByName.includes(el.name)

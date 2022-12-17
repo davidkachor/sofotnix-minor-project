@@ -1,7 +1,11 @@
+import { shuffle } from 'lodash'
+
 export const useGetRandomUnratedBreed = () => {
   const likesStore = useRatingsStore()
   const { allBreeds } = storeToRefs(useBreedsStore())
   const { dislikes, favourites, likes } = storeToRefs(likesStore)
+
+  const shuffledBreeds = computed(() => shuffle([...allBreeds.value]))
 
   const hashedRatingStore = computed<Record<number, IBreed>>(() => {
     return [...dislikes.value, ...favourites.value, ...likes.value]
@@ -9,7 +13,7 @@ export const useGetRandomUnratedBreed = () => {
   })
 
   const data = computed<IBreed | null>(() => {
-    for (const item of allBreeds.value) {
+    for (const item of shuffledBreeds.value) {
       if (!hashedRatingStore.value[item.id]) {
         return item
       }
