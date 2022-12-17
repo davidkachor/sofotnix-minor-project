@@ -30,7 +30,7 @@ const breedsStore = useBreedsStore()
 const { filteredBreeds } = storeToRefs(breedsStore)
 const { resetQueryParams } = breedsStore
 
-const uploadModalOpen = ref(true)
+const uploadModalOpen = ref(false)
 
 const gridData = computed<IGridItem[]>(() => {
   return filteredBreeds.value.map(el => ({ value: el.id, name: el.name, src: el.image.url, ref: el }))
