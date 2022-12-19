@@ -33,6 +33,7 @@
 
       <el-button
         v-if="canShowMore"
+        type="primary"
         class="show-more-button"
         @click="showMore"
       >

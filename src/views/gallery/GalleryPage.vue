@@ -4,8 +4,15 @@
       <nav class="flex justify-between items-center">
         <PageTabs :tab-list="[{ name: 'Gallery' }]" />
 
-        <el-button @click="uploadModalOpen = true">
-          <UploadIcon class="w-4" /> Upload
+        <el-button
+          class="uppercase tracking-[2px] px-[30px] py-3 text-xs h-auto rounded-[10px] font-medium"
+          type="primary"
+          @click="uploadModalOpen = true"
+        >
+          <template #icon>
+            <UploadIcon class="h-4" />
+          </template>
+          Upload
         </el-button>
       </nav>
 

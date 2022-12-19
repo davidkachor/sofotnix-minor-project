@@ -31,11 +31,11 @@
           <el-option v-for="{ value, label } in limitOptions" :key="value" :value="value" :label="label" />
         </el-select>
         <button
-          class="flex items-center justify-center w-[40px] h-[40px] rounded-[10px]
-          bg-white fill-active hover:bg-active hover:fill-white ease-in-out duration-300"
+          class="flex items-center justify-center w-10 h-10 rounded-[10px] p-[10px]
+          bg-white fill-main hover:bg-main hover:fill-white ease-in-out duration-300"
           @click.prevent="onRefresh"
         >
-          <RefreshIcon />
+          <RefreshIcon class="h-5" />
         </button>
       </div>
     </div>

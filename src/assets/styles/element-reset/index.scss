@@ -3,8 +3,14 @@
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
     'primary': (
-      'base': #FF868E, // todo: this MUST be a valid 6-digit HEX color in order to make it correctly work
+      'base': #FBE0DC, // todo: this MUST be a valid 6-digit HEX color in order to make it correctly work
     ),
+  ),
+  $button: (
+    'font-weight': '500',
+    'border-color': 'transparent',
+    'text-color': '#FF868E',
+    'hover-text-color': '#FFF'
   ),
   $input: (
     'border-radius': '20px',
