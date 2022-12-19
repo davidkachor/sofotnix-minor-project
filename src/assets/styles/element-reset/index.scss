@@ -3,15 +3,36 @@
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
     'primary': (
-      'base': colors.$primary, // todo: this MUST be a valid 6-digit HEX color in order to make it correctly work
+      'base': #FBE0DC, // todo: this MUST be a valid 6-digit HEX color in order to make it correctly work
     ),
+  ),
+  $button: (
+    'font-weight': '500',
+    'border-color': 'transparent',
+    'text-color': '#FF868E',
+    'hover-text-color': '#FFF'
+  ),
+  $input: (
+    'border-radius': '20px',
+    'border': 'none',
+    'focus-border-color': #FF868E,
+    'border-color': 'transparent'
+  ),
+  $select:(
+    // 'border-color-hover': '#FBE0DC',
+    // 'nput-focus-border-color': '#FF868E'
+  ),
+  $select-dropdown: (
+    // 'bg-color': '#F8F8F7'
   )
 );
 
 @use "element-plus/theme-chalk/src/base";
 @use "element-plus/theme-chalk/src/button";
+@use "element-plus/theme-chalk/src/button-group";
 @use "element-plus/theme-chalk/src/message";
 @use "element-plus/theme-chalk/src/select";
+@use "element-plus/theme-chalk/src/select-dropdown";
 @use "element-plus/theme-chalk/src/input";
 @use "element-plus/theme-chalk/src/option";
 @use "element-plus/theme-chalk/src/popper";
@@ -19,3 +40,5 @@
 @use "element-plus/theme-chalk/src/form";
 @use "element-plus/theme-chalk/src/form-item";
 @use "element-plus/theme-chalk/src/card";
+@use "element-plus/theme-chalk/src/image";
+@use "element-plus/theme-chalk/src/upload";

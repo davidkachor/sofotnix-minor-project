@@ -1,22 +1,11 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-import { routeNames } from './route-names'
-
-import { authRoutes } from '@/views/auth/auth.routes'
-import { exampleViewRoutes } from '@/views/example-view/example-view.routes'
-
-import DefaultLayout from '@/layouts/DefaultLayout.vue'
-
-const defaultLayoutRoutes: RouteRecordRaw = {
-  path: '/',
-  name: routeNames.rootPage,
-  redirect: { name: routeNames.exampleView },
-  component: DefaultLayout,
-  children: [
-    // list of views that use default layout
-    ...exampleViewRoutes
-  ]
-}
+import { homeRoutes, homeRouteNames } from '@/views/home/home.routes'
+import { votingRoutes } from '@/views/voting/voting.routes'
+import { breedsRoutes } from '@/views/breeds/breeds.routes'
+import { ratesRoutes } from '@/views/rates/rates.routes'
+import { searchRoutes } from '@/views/search/search.routes'
+import { galleryRoutes } from '@/views/gallery/gallery.routes'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,11 +13,19 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/'
   },
 
-  authRoutes,
-  defaultLayoutRoutes
+  ...homeRoutes,
+  ...votingRoutes,
+  ...breedsRoutes,
+  ...ratesRoutes,
+  ...searchRoutes,
+  ...galleryRoutes,
+
+  {
+    path: '/*',
+    redirect: { name: homeRouteNames.home }
+  }
 ]
 
 export {
-  routes,
-  defaultLayoutRoutes
+  routes
 }

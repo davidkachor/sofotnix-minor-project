@@ -2,12 +2,13 @@
 
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  @apply font-jost text-contrast;
 }
 
 html,
 body,
 #app {
-  @apply h-full;
+  // @apply h-full;
 }
 
 html {

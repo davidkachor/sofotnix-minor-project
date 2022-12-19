@@ -1,12 +1,15 @@
-import { exampleViewRouteNames } from '@/views/example-view/example-view.routes'
-import { authRouteNames } from '@/views/auth/auth.routes'
+import { homeRouteNames } from '@/views/home/home.routes'
+import { votingRouteNames } from '@/views/voting/voting.routes'
+import { breedsRouteNames } from '@/views/breeds/breeds.routes'
+import { ratesRouteNames } from '@/views/rates/rates.routes'
+import { searchRouteNames } from '@/views/search/search.routes'
+import { galleryRouteNames } from '@/views/gallery/gallery.routes'
 
 export const routeNames = {
-  rootPage: 'rootPage',
-
-  ...exampleViewRouteNames,
-  ...authRouteNames,
-
-  additionalDefaultLayoutRoute: 'additionalDefaultLayoutRoute',
-  additionalNoLayoutRoute: 'additionalNoLayoutRoute'
+  ...homeRouteNames,
+  ...votingRouteNames,
+  ...breedsRouteNames,
+  ...ratesRouteNames,
+  ...searchRouteNames,
+  ...galleryRouteNames
 }
